@@ -179,6 +179,7 @@
      ============================================ */
   --navbar-height: 60px;
   --sidebar-width: 280px;
+  --sidebar-collapsed-width: 60px;
   --panel-width: 420px;
   --column-width: 320px;
   

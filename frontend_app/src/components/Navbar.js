@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiGrid, FiList, FiClipboard } from 'react-icons/fi';
+import { FiGrid, FiList, FiClipboard, FiMenu, FiX } from 'react-icons/fi';
 import { useAppContext } from '../context/AppContext';
 import './Navbar.css';
 
@@ -11,9 +11,22 @@ import './Navbar.css';
 const Navbar = () => {
   const { state, actions } = useAppContext();
 
+  const handleToggleSidebar = () => {
+    actions.toggleSidebar(!state.isSidebarCollapsed);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
+        <button
+          className="sidebar-toggle-btn"
+          onClick={handleToggleSidebar}
+          aria-label={state.isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          aria-expanded={!state.isSidebarCollapsed}
+          title={state.isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        >
+          {state.isSidebarCollapsed ? <FiMenu className="toggle-icon" /> : <FiX className="toggle-icon" />}
+        </button>
         <div className="navbar-logo">
           <FiClipboard className="logo-icon" />
           <span className="logo-text">ProKanban</span>

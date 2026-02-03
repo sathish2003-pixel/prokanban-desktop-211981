@@ -17,7 +17,8 @@ const ActionTypes = {
   SET_VIEW_MODE: 'SET_VIEW_MODE',
   SET_SELECTED_TASK: 'SET_SELECTED_TASK',
   SET_FILTERS: 'SET_FILTERS',
-  SET_SEARCH_QUERY: 'SET_SEARCH_QUERY'
+  SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
+  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR'
 };
 
 // Reducer function
@@ -95,6 +96,9 @@ const appReducer = (state, action) => {
     case ActionTypes.SET_SEARCH_QUERY:
       return { ...state, searchQuery: action.payload };
 
+    case ActionTypes.TOGGLE_SIDEBAR:
+      return { ...state, isSidebarCollapsed: action.payload };
+
     default:
       return state;
   }
@@ -113,7 +117,8 @@ const initialState = {
     assignee: null,
     labels: []
   },
-  searchQuery: ''
+  searchQuery: '',
+  isSidebarCollapsed: false
 };
 
 // PUBLIC_INTERFACE
@@ -128,6 +133,8 @@ export const AppProvider = ({ children }) => {
   // Load data from localStorage on mount
   useEffect(() => {
     const savedData = localStorage.getItem('kanbanData');
+    const savedSidebarState = localStorage.getItem('sidebarCollapsed');
+    
     if (savedData) {
       try {
         const parsed = JSON.parse(savedData);
@@ -138,6 +145,14 @@ export const AppProvider = ({ children }) => {
       }
     } else {
       dispatch({ type: ActionTypes.SET_DATA, payload: initialMockData });
+    }
+
+    // Load sidebar collapsed state
+    if (savedSidebarState !== null) {
+      dispatch({ 
+        type: ActionTypes.TOGGLE_SIDEBAR, 
+        payload: savedSidebarState === 'true' 
+      });
     }
   }, []);
 
@@ -214,6 +229,11 @@ export const AppProvider = ({ children }) => {
 
     setSearchQuery: (query) => {
       dispatch({ type: ActionTypes.SET_SEARCH_QUERY, payload: query });
+    },
+
+    toggleSidebar: (collapsed) => {
+      localStorage.setItem('sidebarCollapsed', collapsed.toString());
+      dispatch({ type: ActionTypes.TOGGLE_SIDEBAR, payload: collapsed });
     }
   };
 

@@ -20,7 +20,7 @@ const AppContent = () => {
       <Navbar />
       <div className="app-layout">
         <Sidebar />
-        <main className="main-content">
+        <main className={`main-content ${state.isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
           {state.viewMode === 'board' ? <BoardView /> : <ListView />}
         </main>
       </div>

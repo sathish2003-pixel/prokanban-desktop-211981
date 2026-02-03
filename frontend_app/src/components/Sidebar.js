@@ -45,44 +45,63 @@ const Sidebar = () => {
            state.searchQuery;
   };
 
+  const { isSidebarCollapsed } = state;
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-content">
         <div className="sidebar-section">
-          <h3 className="sidebar-title">Navigation</h3>
+          {!isSidebarCollapsed && <h3 className="sidebar-title">Navigation</h3>}
           <nav className="sidebar-nav">
-            <button className="nav-item active">
+            <button 
+              className="nav-item active" 
+              title={isSidebarCollapsed ? 'Board' : ''}
+              aria-label="Board"
+            >
               <FiGrid className="nav-icon" />
-              Board
+              {!isSidebarCollapsed && <span className="nav-text">Board</span>}
             </button>
-            <button className="nav-item">
+            <button 
+              className="nav-item"
+              title={isSidebarCollapsed ? 'Calendar' : ''}
+              aria-label="Calendar"
+            >
               <FiCalendar className="nav-icon" />
-              Calendar
+              {!isSidebarCollapsed && <span className="nav-text">Calendar</span>}
             </button>
-            <button className="nav-item">
+            <button 
+              className="nav-item"
+              title={isSidebarCollapsed ? 'Reports' : ''}
+              aria-label="Reports"
+            >
               <FiBarChart2 className="nav-icon" />
-              Reports
+              {!isSidebarCollapsed && <span className="nav-text">Reports</span>}
             </button>
-            <button className="nav-item">
+            <button 
+              className="nav-item"
+              title={isSidebarCollapsed ? 'Settings' : ''}
+              aria-label="Settings"
+            >
               <FiSettings className="nav-icon" />
-              Settings
+              {!isSidebarCollapsed && <span className="nav-text">Settings</span>}
             </button>
           </nav>
         </div>
 
-        <div className="sidebar-section">
-          <div className="sidebar-header">
-            <h3 className="sidebar-title">Filters</h3>
-            <button
-              className="expand-toggle"
-              onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
-              aria-label="Toggle filters"
-            >
-              {isFiltersExpanded ? <FiChevronDown /> : <FiChevronRight />}
-            </button>
-          </div>
+        {!isSidebarCollapsed && (
+          <div className="sidebar-section">
+            <div className="sidebar-header">
+              <h3 className="sidebar-title">Filters</h3>
+              <button
+                className="expand-toggle"
+                onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
+                aria-label="Toggle filters"
+              >
+                {isFiltersExpanded ? <FiChevronDown /> : <FiChevronRight />}
+              </button>
+            </div>
 
-          {isFiltersExpanded && (
+            {isFiltersExpanded && (
             <div className="filters-content">
               {/* Search */}
               <div className="filter-group">
@@ -168,7 +187,8 @@ const Sidebar = () => {
               )}
             </div>
           )}
-        </div>
+          </div>
+        )}
       </div>
     </aside>
   );

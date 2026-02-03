@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiPlus } from 'react-icons/fi';
 import { useDroppable } from '@dnd-kit/core';
 import SortableTaskCard from './SortableTaskCard';
 import { useAppContext } from '../context/AppContext';
@@ -46,7 +47,7 @@ const BoardColumn = ({ list, tasks }) => {
       </div>
 
       <button className="add-task-btn">
-        <span className="add-icon">+</span>
+        <FiPlus className="add-icon" />
         Add task
       </button>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiGrid, FiList, FiClipboard } from 'react-icons/fi';
 import { useAppContext } from '../context/AppContext';
 import './Navbar.css';
 
@@ -14,7 +15,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-left">
         <div className="navbar-logo">
-          <span className="logo-icon">📋</span>
+          <FiClipboard className="logo-icon" />
           <span className="logo-text">ProKanban</span>
         </div>
         <div className="navbar-board-name">
@@ -29,7 +30,7 @@ const Navbar = () => {
             onClick={() => actions.setViewMode('board')}
             aria-label="Board view"
           >
-            <span className="view-icon">⊞</span>
+            <FiGrid className="view-icon" />
             Board
           </button>
           <button
@@ -37,7 +38,7 @@ const Navbar = () => {
             onClick={() => actions.setViewMode('list')}
             aria-label="List view"
           >
-            <span className="view-icon">☰</span>
+            <FiList className="view-icon" />
             List
           </button>
         </div>

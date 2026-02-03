@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FiX } from 'react-icons/fi';
 import { useAppContext } from '../context/AppContext';
 import { filterOptions } from '../data/mockData';
 import './TaskDetailsPanel.css';
@@ -93,7 +94,7 @@ const TaskDetailsPanel = () => {
         <div className="panel-header">
           <h2 className="panel-title">Task Details</h2>
           <button className="panel-close-btn" onClick={handleClose} aria-label="Close panel">
-            ✕
+            <FiX />
           </button>
         </div>
 

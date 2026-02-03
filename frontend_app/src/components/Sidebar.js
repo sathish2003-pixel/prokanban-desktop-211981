@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiGrid, FiCalendar, FiBarChart2, FiSettings, FiChevronDown, FiChevronRight } from 'react-icons/fi';
 import { useAppContext } from '../context/AppContext';
 import { filterOptions } from '../data/mockData';
 import './Sidebar.css';
@@ -51,19 +52,19 @@ const Sidebar = () => {
           <h3 className="sidebar-title">Navigation</h3>
           <nav className="sidebar-nav">
             <button className="nav-item active">
-              <span className="nav-icon">📊</span>
+              <FiGrid className="nav-icon" />
               Board
             </button>
             <button className="nav-item">
-              <span className="nav-icon">📅</span>
+              <FiCalendar className="nav-icon" />
               Calendar
             </button>
             <button className="nav-item">
-              <span className="nav-icon">📈</span>
+              <FiBarChart2 className="nav-icon" />
               Reports
             </button>
             <button className="nav-item">
-              <span className="nav-icon">⚙️</span>
+              <FiSettings className="nav-icon" />
               Settings
             </button>
           </nav>
@@ -77,7 +78,7 @@ const Sidebar = () => {
               onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
               aria-label="Toggle filters"
             >
-              {isFiltersExpanded ? '▼' : '▶'}
+              {isFiltersExpanded ? <FiChevronDown /> : <FiChevronRight />}
             </button>
           </div>
 

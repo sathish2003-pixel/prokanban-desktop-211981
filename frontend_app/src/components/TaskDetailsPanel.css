@@ -79,9 +79,13 @@
   border: none;
   border-radius: 3px;
   color: var(--color-text-muted);
-  font-size: var(--font-size-xl);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
+}
+
+.panel-close-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 .panel-close-btn:hover {

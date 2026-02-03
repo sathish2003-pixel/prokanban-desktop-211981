@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiMessageSquare, FiPaperclip, FiMoreHorizontal } from 'react-icons/fi';
 import './TaskCard.css';
 
 // PUBLIC_INTERFACE
@@ -31,21 +32,10 @@ const TaskCard = ({ task, onClick, isDragging }) => {
     return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
   };
 
-  const isOverdue = (dueDate) => {
-    if (!dueDate) return false;
-    return new Date(dueDate) < new Date();
-  };
-
   // Generate a simple issue key from task id
   const getIssueKey = (taskId) => {
     const num = taskId.split('-').pop() || '1';
     return `PRO-${num.substring(0, 4).toUpperCase()}`;
-  };
-
-  // Mock estimate (story points)
-  const getEstimate = () => {
-    const estimates = [1, 2, 3, 5, 8];
-    return estimates[Math.floor(Math.random() * estimates.length)];
   };
 
   return (
@@ -55,7 +45,7 @@ const TaskCard = ({ task, onClick, isDragging }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Issue Key & Title */}
+      {/* Title */}
       <div className="task-card-header">
         <h4 className="task-title">{task.title}</h4>
       </div>
@@ -77,7 +67,7 @@ const TaskCard = ({ task, onClick, isDragging }) => {
         </div>
       )}
 
-      {/* Metadata Row: Issue Key, Priority, Assignee, Estimate */}
+      {/* Metadata Row: Issue Key, Priority, Assignee */}
       <div className="task-card-footer">
         <div className="task-meta-left">
           <span className="task-issue-key">{getIssueKey(task.id)}</span>
@@ -85,6 +75,7 @@ const TaskCard = ({ task, onClick, isDragging }) => {
             className="task-priority-dot" 
             style={{ backgroundColor: getPriorityColor(task.priority) }}
             title={`Priority: ${task.priority}`}
+            aria-label={`Priority: ${task.priority}`}
           ></span>
         </div>
         
@@ -101,15 +92,15 @@ const TaskCard = ({ task, onClick, isDragging }) => {
       {isHovered && !isDragging && (
         <div className="task-quick-actions">
           <button className="quick-action-btn" title="Comments" aria-label="Comments">
-            <span className="action-icon">💬</span>
+            <FiMessageSquare className="action-icon" />
             <span className="action-count">0</span>
           </button>
           <button className="quick-action-btn" title="Attachments" aria-label="Attachments">
-            <span className="action-icon">📎</span>
+            <FiPaperclip className="action-icon" />
             <span className="action-count">0</span>
           </button>
           <button className="quick-action-btn" title="More actions" aria-label="More actions">
-            <span className="action-icon">⋯</span>
+            <FiMoreHorizontal className="action-icon" />
           </button>
         </div>
       )}

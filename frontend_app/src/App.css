@@ -25,10 +25,12 @@
   overflow: hidden;
   background: var(--color-background);
   transition: margin-left var(--transition-base) var(--transition-timing);
+  /* Main content margin remains fixed during peek - sidebar overlays instead */
 }
 
 .main-content.sidebar-collapsed {
   margin-left: 60px;
+  /* Peek expansion does not affect this margin - sidebar floats above */
 }
 
 /* ============================================

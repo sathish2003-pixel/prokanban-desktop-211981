@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FiGrid, FiCalendar, FiBarChart2, FiSettings, FiChevronDown, FiChevronRight } from 'react-icons/fi';
 import { useAppContext } from '../context/AppContext';
 import { filterOptions } from '../data/mockData';
@@ -12,6 +12,9 @@ import './Sidebar.css';
 const Sidebar = () => {
   const { state, actions } = useAppContext();
   const [isFiltersExpanded, setIsFiltersExpanded] = useState(true);
+  const [isPeeking, setIsPeeking] = useState(false);
+  const sidebarRef = useRef(null);
+  const peekTimeoutRef = useRef(null);
 
   const handleFilterChange = (filterType, value) => {
     const currentValue = state.filters[filterType];
@@ -47,48 +50,105 @@ const Sidebar = () => {
 
   const { isSidebarCollapsed } = state;
 
+  // Hover-to-peek handlers
+  const handleMouseEnter = () => {
+    if (isSidebarCollapsed) {
+      // Clear any pending timeout
+      if (peekTimeoutRef.current) {
+        clearTimeout(peekTimeoutRef.current);
+      }
+      // Add slight delay before expanding to avoid accidental triggers
+      peekTimeoutRef.current = setTimeout(() => {
+        setIsPeeking(true);
+      }, 100);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isSidebarCollapsed) {
+      // Clear any pending timeout
+      if (peekTimeoutRef.current) {
+        clearTimeout(peekTimeoutRef.current);
+      }
+      setIsPeeking(false);
+    }
+  };
+
+  const handleFocusIn = (e) => {
+    // Check if focus is moving into the sidebar
+    if (isSidebarCollapsed && sidebarRef.current && sidebarRef.current.contains(e.target)) {
+      setIsPeeking(true);
+    }
+  };
+
+  const handleFocusOut = (e) => {
+    // Check if focus is leaving the sidebar
+    if (isSidebarCollapsed && sidebarRef.current && !sidebarRef.current.contains(e.relatedTarget)) {
+      setIsPeeking(false);
+    }
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (peekTimeoutRef.current) {
+        clearTimeout(peekTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Determine if we should show expanded content (either not collapsed, or peeking)
+  const shouldShowExpanded = !isSidebarCollapsed || isPeeking;
+
   return (
-    <aside className={`sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+    <aside 
+      ref={sidebarRef}
+      className={`sidebar ${isSidebarCollapsed ? 'collapsed' : ''} ${isPeeking ? 'peek-expanded' : ''}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocusCapture={handleFocusIn}
+      onBlurCapture={handleFocusOut}
+    >
       <div className="sidebar-content">
         <div className="sidebar-section">
-          {!isSidebarCollapsed && <h3 className="sidebar-title">Navigation</h3>}
+          {shouldShowExpanded && <h3 className="sidebar-title">Navigation</h3>}
           <nav className="sidebar-nav">
             <button 
               className="nav-item active" 
-              title={isSidebarCollapsed ? 'Board' : ''}
+              title={isSidebarCollapsed && !isPeeking ? 'Board' : ''}
               aria-label="Board"
             >
               <FiGrid className="nav-icon" />
-              {!isSidebarCollapsed && <span className="nav-text">Board</span>}
+              {shouldShowExpanded && <span className="nav-text">Board</span>}
             </button>
             <button 
               className="nav-item"
-              title={isSidebarCollapsed ? 'Calendar' : ''}
+              title={isSidebarCollapsed && !isPeeking ? 'Calendar' : ''}
               aria-label="Calendar"
             >
               <FiCalendar className="nav-icon" />
-              {!isSidebarCollapsed && <span className="nav-text">Calendar</span>}
+              {shouldShowExpanded && <span className="nav-text">Calendar</span>}
             </button>
             <button 
               className="nav-item"
-              title={isSidebarCollapsed ? 'Reports' : ''}
+              title={isSidebarCollapsed && !isPeeking ? 'Reports' : ''}
               aria-label="Reports"
             >
               <FiBarChart2 className="nav-icon" />
-              {!isSidebarCollapsed && <span className="nav-text">Reports</span>}
+              {shouldShowExpanded && <span className="nav-text">Reports</span>}
             </button>
             <button 
               className="nav-item"
-              title={isSidebarCollapsed ? 'Settings' : ''}
+              title={isSidebarCollapsed && !isPeeking ? 'Settings' : ''}
               aria-label="Settings"
             >
               <FiSettings className="nav-icon" />
-              {!isSidebarCollapsed && <span className="nav-text">Settings</span>}
+              {shouldShowExpanded && <span className="nav-text">Settings</span>}
             </button>
           </nav>
         </div>
 
-        {!isSidebarCollapsed && (
+        {shouldShowExpanded && (
           <div className="sidebar-section">
             <div className="sidebar-header">
               <h3 className="sidebar-title">Filters</h3>

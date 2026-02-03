@@ -15,11 +15,19 @@
   overflow-y: auto;
   overflow-x: hidden;
   z-index: var(--z-sidebar);
-  transition: width var(--transition-base) var(--transition-timing);
+  transition: width var(--transition-base) var(--transition-timing),
+              box-shadow var(--transition-base) var(--transition-timing);
 }
 
 .sidebar.collapsed {
   width: 60px;
+}
+
+/* Peek expanded state - overlay mode with shadow */
+.sidebar.collapsed.peek-expanded {
+  width: var(--sidebar-width);
+  box-shadow: 4px 0 12px rgba(9, 30, 66, 0.15);
+  z-index: calc(var(--z-sidebar) + 10);
 }
 
 .sidebar-content {
@@ -29,6 +37,10 @@
 
 .sidebar.collapsed .sidebar-content {
   padding: var(--space-5) var(--space-2);
+}
+
+.sidebar.collapsed.peek-expanded .sidebar-content {
+  padding: var(--space-5) var(--space-4);
 }
 
 .sidebar-section {
@@ -53,6 +65,7 @@
   letter-spacing: 0.5px;
   color: var(--color-text-secondary);
   margin: 0 0 var(--space-3) 0;
+  transition: opacity var(--transition-base) var(--transition-timing);
 }
 
 .expand-toggle {
@@ -105,14 +118,25 @@
   padding: var(--space-2);
 }
 
+.sidebar.collapsed.peek-expanded .nav-item {
+  justify-content: flex-start;
+  padding: var(--space-2) var(--space-3);
+}
+
 .nav-text {
-  transition: opacity var(--transition-fast) var(--transition-timing);
+  transition: opacity var(--transition-base) var(--transition-timing),
+              width var(--transition-base) var(--transition-timing);
 }
 
 .sidebar.collapsed .nav-text {
   opacity: 0;
   width: 0;
   overflow: hidden;
+}
+
+.sidebar.collapsed.peek-expanded .nav-text {
+  opacity: 1;
+  width: auto;
 }
 
 .nav-item:hover {
@@ -140,6 +164,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  transition: opacity var(--transition-base) var(--transition-timing);
 }
 
 .filter-group {

@@ -18,7 +18,10 @@ const ActionTypes = {
   SET_SELECTED_TASK: 'SET_SELECTED_TASK',
   SET_FILTERS: 'SET_FILTERS',
   SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
-  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR'
+  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR',
+  SET_CURRENT_PROJECT: 'SET_CURRENT_PROJECT',
+  SET_SELECTED_TEAM: 'SET_SELECTED_TEAM',
+  SET_ACTIVE_NAV: 'SET_ACTIVE_NAV'
 };
 
 // Reducer function
@@ -99,6 +102,15 @@ const appReducer = (state, action) => {
     case ActionTypes.TOGGLE_SIDEBAR:
       return { ...state, isSidebarCollapsed: action.payload };
 
+    case ActionTypes.SET_CURRENT_PROJECT:
+      return { ...state, currentProjectId: action.payload };
+
+    case ActionTypes.SET_SELECTED_TEAM:
+      return { ...state, selectedTeamId: action.payload };
+
+    case ActionTypes.SET_ACTIVE_NAV:
+      return { ...state, activeNav: action.payload };
+
     default:
       return state;
   }
@@ -118,7 +130,10 @@ const initialState = {
     labels: []
   },
   searchQuery: '',
-  isSidebarCollapsed: false
+  isSidebarCollapsed: false,
+  currentProjectId: 'project-1', // Default to first project
+  selectedTeamId: null, // null means "all teams"
+  activeNav: 'board' // 'board', 'calendar', 'reports', 'settings'
 };
 
 // PUBLIC_INTERFACE
@@ -134,6 +149,9 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const savedData = localStorage.getItem('kanbanData');
     const savedSidebarState = localStorage.getItem('sidebarCollapsed');
+    const savedProjectId = localStorage.getItem('currentProjectId');
+    const savedTeamId = localStorage.getItem('selectedTeamId');
+    const savedActiveNav = localStorage.getItem('activeNav');
     
     if (savedData) {
       try {
@@ -153,6 +171,21 @@ export const AppProvider = ({ children }) => {
         type: ActionTypes.TOGGLE_SIDEBAR, 
         payload: savedSidebarState === 'true' 
       });
+    }
+
+    // Load current project
+    if (savedProjectId) {
+      dispatch({ type: ActionTypes.SET_CURRENT_PROJECT, payload: savedProjectId });
+    }
+
+    // Load selected team
+    if (savedTeamId) {
+      dispatch({ type: ActionTypes.SET_SELECTED_TEAM, payload: savedTeamId });
+    }
+
+    // Load active navigation
+    if (savedActiveNav) {
+      dispatch({ type: ActionTypes.SET_ACTIVE_NAV, payload: savedActiveNav });
     }
   }, []);
 
@@ -234,6 +267,21 @@ export const AppProvider = ({ children }) => {
     toggleSidebar: (collapsed) => {
       localStorage.setItem('sidebarCollapsed', collapsed.toString());
       dispatch({ type: ActionTypes.TOGGLE_SIDEBAR, payload: collapsed });
+    },
+
+    setCurrentProject: (projectId) => {
+      localStorage.setItem('currentProjectId', projectId);
+      dispatch({ type: ActionTypes.SET_CURRENT_PROJECT, payload: projectId });
+    },
+
+    setSelectedTeam: (teamId) => {
+      localStorage.setItem('selectedTeamId', teamId || '');
+      dispatch({ type: ActionTypes.SET_SELECTED_TEAM, payload: teamId });
+    },
+
+    setActiveNav: (navItem) => {
+      localStorage.setItem('activeNav', navItem);
+      dispatch({ type: ActionTypes.SET_ACTIVE_NAV, payload: navItem });
     }
   };
 

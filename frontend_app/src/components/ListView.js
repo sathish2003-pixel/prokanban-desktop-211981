@@ -14,6 +14,16 @@ const ListView = () => {
   const filteredTasks = useMemo(() => {
     let filtered = [...state.tasks];
 
+    // Apply current project filter
+    if (state.currentProjectId) {
+      filtered = filtered.filter(task => task.projectId === state.currentProjectId);
+    }
+
+    // Apply selected team filter
+    if (state.selectedTeamId) {
+      filtered = filtered.filter(task => task.teamId === state.selectedTeamId);
+    }
+
     // Apply search query
     if (state.searchQuery) {
       const query = state.searchQuery.toLowerCase();
@@ -54,7 +64,7 @@ const ListView = () => {
       }
       return a.order - b.order;
     });
-  }, [state.tasks, state.lists, state.searchQuery, state.filters]);
+  }, [state.tasks, state.lists, state.searchQuery, state.filters, state.currentProjectId, state.selectedTeamId]);
 
   const handleTaskClick = (taskId) => {
     actions.setSelectedTask(taskId);

@@ -1,11 +1,12 @@
 import React from 'react';
 import { FiGrid, FiList, FiClipboard, FiMenu, FiX } from 'react-icons/fi';
 import { useAppContext } from '../context/AppContext';
+import { projects } from '../data/mockData';
 import './Navbar.css';
 
 // PUBLIC_INTERFACE
 /**
- * Navbar component displaying the application header with view mode toggle
+ * Navbar component displaying the application header with view mode toggle and current project
  * @returns {JSX.Element} Navbar component
  */
 const Navbar = () => {
@@ -14,6 +15,12 @@ const Navbar = () => {
   const handleToggleSidebar = () => {
     actions.toggleSidebar(!state.isSidebarCollapsed);
   };
+
+  const getCurrentProject = () => {
+    return projects.find(p => p.id === state.currentProjectId) || projects[0];
+  };
+
+  const currentProject = getCurrentProject();
 
   return (
     <nav className="navbar">
@@ -32,7 +39,8 @@ const Navbar = () => {
           <span className="logo-text">ProKanban</span>
         </div>
         <div className="navbar-board-name">
-          {state.boards[0]?.title || 'Kanban Board'}
+          <span className="project-indicator" style={{ backgroundColor: currentProject.color }}></span>
+          {currentProject.name}
         </div>
       </div>
 

@@ -9,13 +9,67 @@ export const generateId = () => {
   return `id-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 };
 
+// Projects mock data
+export const projects = [
+  {
+    id: 'project-1',
+    name: 'Project Alpha',
+    description: 'Main development board',
+    color: '#0052CC',
+    taskCount: 8
+  },
+  {
+    id: 'project-2',
+    name: 'Project Beta',
+    description: 'Marketing and design initiatives',
+    color: '#00875A',
+    taskCount: 5
+  },
+  {
+    id: 'project-3',
+    name: 'Project Gamma',
+    description: 'Infrastructure improvements',
+    color: '#FF991F',
+    taskCount: 3
+  }
+];
+
+// Teams mock data
+export const teams = [
+  {
+    id: 'team-1',
+    name: 'Engineering',
+    color: '#0052CC',
+    memberCount: 8
+  },
+  {
+    id: 'team-2',
+    name: 'Design',
+    color: '#6554C0',
+    memberCount: 4
+  },
+  {
+    id: 'team-3',
+    name: 'Product',
+    color: '#00875A',
+    memberCount: 5
+  },
+  {
+    id: 'team-4',
+    name: 'Marketing',
+    color: '#FF991F',
+    memberCount: 6
+  }
+];
+
 // Initial mock data
 export const initialMockData = {
   boards: [
     {
       id: 'board-1',
       title: 'Project Alpha',
-      description: 'Main development board'
+      description: 'Main development board',
+      projectId: 'project-1'
     }
   ],
   lists: [
@@ -48,6 +102,8 @@ export const initialMockData = {
     {
       id: 'task-1',
       listId: 'list-1',
+      projectId: 'project-1',
+      teamId: 'team-1',
       title: 'Design system setup',
       description: 'Create a comprehensive design system with colors, typography, and components',
       priority: 'high',
@@ -61,6 +117,8 @@ export const initialMockData = {
     {
       id: 'task-2',
       listId: 'list-1',
+      projectId: 'project-1',
+      teamId: 'team-1',
       title: 'API documentation',
       description: 'Document all REST API endpoints with examples',
       priority: 'medium',
@@ -74,6 +132,8 @@ export const initialMockData = {
     {
       id: 'task-3',
       listId: 'list-2',
+      projectId: 'project-1',
+      teamId: 'team-1',
       title: 'User authentication flow',
       description: 'Implement OAuth2 authentication with refresh tokens',
       priority: 'high',
@@ -87,6 +147,8 @@ export const initialMockData = {
     {
       id: 'task-4',
       listId: 'list-2',
+      projectId: 'project-1',
+      teamId: 'team-2',
       title: 'Dashboard UI components',
       description: 'Build reusable dashboard components with charts and metrics',
       priority: 'medium',
@@ -100,6 +162,8 @@ export const initialMockData = {
     {
       id: 'task-5',
       listId: 'list-3',
+      projectId: 'project-1',
+      teamId: 'team-1',
       title: 'Performance optimization',
       description: 'Optimize bundle size and improve load times',
       priority: 'high',
@@ -113,6 +177,8 @@ export const initialMockData = {
     {
       id: 'task-6',
       listId: 'list-3',
+      projectId: 'project-1',
+      teamId: 'team-1',
       title: 'Database migration',
       description: 'Migrate from MongoDB to PostgreSQL',
       priority: 'high',
@@ -126,6 +192,8 @@ export const initialMockData = {
     {
       id: 'task-7',
       listId: 'list-4',
+      projectId: 'project-1',
+      teamId: 'team-1',
       title: 'Initial project setup',
       description: 'Set up repository, CI/CD, and development environment',
       priority: 'high',
@@ -139,6 +207,8 @@ export const initialMockData = {
     {
       id: 'task-8',
       listId: 'list-4',
+      projectId: 'project-1',
+      teamId: 'team-3',
       title: 'Requirements gathering',
       description: 'Collect and document all project requirements',
       priority: 'medium',

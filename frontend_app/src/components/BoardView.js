@@ -38,6 +38,16 @@ const BoardView = () => {
   const filteredTasks = useMemo(() => {
     let filtered = [...state.tasks];
 
+    // Apply current project filter
+    if (state.currentProjectId) {
+      filtered = filtered.filter(task => task.projectId === state.currentProjectId);
+    }
+
+    // Apply selected team filter
+    if (state.selectedTeamId) {
+      filtered = filtered.filter(task => task.teamId === state.selectedTeamId);
+    }
+
     // Apply search query
     if (state.searchQuery) {
       const query = state.searchQuery.toLowerCase();
@@ -70,7 +80,7 @@ const BoardView = () => {
     }
 
     return filtered;
-  }, [state.tasks, state.searchQuery, state.filters]);
+  }, [state.tasks, state.searchQuery, state.filters, state.currentProjectId, state.selectedTeamId]);
 
   // Get tasks for each list
   const getTasksByListId = (listId) => {

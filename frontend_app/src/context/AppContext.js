@@ -160,9 +160,12 @@ export const AppProvider = ({ children }) => {
       } catch (error) {
         console.error('Error loading saved data:', error);
         dispatch({ type: ActionTypes.SET_DATA, payload: initialMockData });
+        localStorage.setItem('kanbanData', JSON.stringify(initialMockData));
       }
     } else {
+      // First load - seed with mock data
       dispatch({ type: ActionTypes.SET_DATA, payload: initialMockData });
+      localStorage.setItem('kanbanData', JSON.stringify(initialMockData));
     }
 
     // Load sidebar collapsed state
@@ -173,19 +176,23 @@ export const AppProvider = ({ children }) => {
       });
     }
 
-    // Load current project
+    // Load current project (default to 'project-1' if not set)
     if (savedProjectId) {
       dispatch({ type: ActionTypes.SET_CURRENT_PROJECT, payload: savedProjectId });
+    } else {
+      localStorage.setItem('currentProjectId', 'project-1');
     }
 
     // Load selected team
-    if (savedTeamId) {
+    if (savedTeamId && savedTeamId !== '') {
       dispatch({ type: ActionTypes.SET_SELECTED_TEAM, payload: savedTeamId });
     }
 
     // Load active navigation
     if (savedActiveNav) {
       dispatch({ type: ActionTypes.SET_ACTIVE_NAV, payload: savedActiveNav });
+    } else {
+      localStorage.setItem('activeNav', 'board');
     }
   }, []);
 

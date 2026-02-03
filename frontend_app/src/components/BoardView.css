@@ -1,32 +1,42 @@
+@import '../styles/theme.css';
+
+/* ============================================
+   BOARD VIEW - Horizontal scrolling columns
+   ============================================ */
+
 .board-view {
   flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 20px;
-  background: #f9fafb;
+  padding: var(--space-5);
+  background: var(--color-background);
 }
 
 .board-columns {
   display: flex;
-  gap: 16px;
+  gap: var(--space-4);
   height: 100%;
   min-width: min-content;
 }
 
-/* Scrollbar styling */
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
 .board-view::-webkit-scrollbar {
   height: 8px;
 }
 
 .board-view::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: var(--color-border-light);
+  border-radius: var(--radius-sm);
 }
 
 .board-view::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 4px;
+  background: var(--color-border-dark);
+  border-radius: var(--radius-sm);
 }
 
 .board-view::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: var(--color-secondary);
 }

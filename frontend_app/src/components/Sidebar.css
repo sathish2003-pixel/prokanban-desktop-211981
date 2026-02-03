@@ -1,208 +1,264 @@
+@import '../styles/theme.css';
+
+/* ============================================
+   SIDEBAR - Navigation and filters
+   ============================================ */
+
 .sidebar {
   position: fixed;
-  top: 60px;
+  top: var(--navbar-height);
   left: 0;
   bottom: 0;
-  width: 280px;
-  background: #ffffff;
-  border-right: 1px solid #e5e7eb;
+  width: var(--sidebar-width);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
   overflow-y: auto;
-  z-index: 100;
+  z-index: var(--z-sidebar);
 }
 
 .sidebar-content {
-  padding: 20px 16px;
+  padding: var(--space-5) var(--space-4);
 }
 
 .sidebar-section {
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
 }
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
 
 .sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-3);
 }
 
 .sidebar-title {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #6b7280;
-  margin: 0 0 12px 0;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-3) 0;
 }
 
 .expand-toggle {
   background: none;
   border: none;
-  color: #9ca3af;
-  font-size: 12px;
+  color: var(--color-secondary);
+  font-size: var(--font-size-sm);
   cursor: pointer;
-  padding: 4px;
-  transition: color 0.2s ease;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast) var(--transition-timing);
 }
 
 .expand-toggle:hover {
-  color: #374151;
+  color: var(--color-primary);
+  background: var(--color-background);
 }
+
+/* ============================================
+   NAVIGATION ITEMS
+   ============================================ */
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
   border: none;
   background: transparent;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #6b7280;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast) var(--transition-timing);
   text-align: left;
 }
 
 .nav-item:hover {
-  background: #f9fafb;
-  color: #374151;
+  background: var(--color-background);
+  color: var(--color-primary);
 }
 
 .nav-item.active {
-  background: #f3f4f6;
-  color: #374151;
-  font-weight: 600;
+  background: var(--color-border-light);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
 }
 
 .nav-icon {
-  font-size: 18px;
+  font-size: var(--icon-base);
 }
+
+/* ============================================
+   FILTERS SECTION
+   ============================================ */
 
 .filters-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .filter-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  font-size: var(--font-size-xs);
 }
+
+/* ============================================
+   SEARCH INPUT
+   ============================================ */
 
 .filter-search {
   width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  font-size: 14px;
-  color: #111827;
-  background: #ffffff;
-  transition: all 0.2s ease;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: all var(--transition-fast) var(--transition-timing);
+  font-family: var(--font-family-base);
+}
+
+.filter-search::placeholder {
+  color: var(--color-text-muted);
 }
 
 .filter-search:focus {
   outline: none;
-  border-color: #374151;
-  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha-10);
 }
+
+/* ============================================
+   FILTER CHIPS - Pill style with retro feel
+   ============================================ */
 
 .filter-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-2);
 }
 
 .filter-chip {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #6b7280;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast) var(--transition-timing);
 }
 
 .filter-chip:hover {
-  border-color: #9ca3af;
-  background: #f9fafb;
+  border-color: var(--color-secondary);
+  background: var(--color-background);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
+/* Active pill style with primary color on light background */
 .filter-chip.active {
-  background: #374151;
-  color: #ffffff;
-  border-color: #374151;
+  background: var(--color-border-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary-alpha-20);
+  font-weight: var(--font-weight-semibold);
 }
+
+/* ============================================
+   PRIORITY DOTS
+   ============================================ */
 
 .priority-dot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
 }
 
 .priority-dot.priority-low {
-  background: #10B981;
+  background: var(--color-priority-low);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
 }
 
 .priority-dot.priority-medium {
-  background: #F59E0B;
+  background: var(--color-priority-medium);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
 }
 
 .priority-dot.priority-high {
-  background: #EF4444;
+  background: var(--color-priority-high);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
 }
+
+/* ============================================
+   CLEAR FILTERS BUTTON
+   ============================================ */
 
 .clear-filters-btn {
   width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #EF4444;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-error);
   cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 8px;
+  transition: all var(--transition-fast) var(--transition-timing);
+  margin-top: var(--space-2);
 }
 
 .clear-filters-btn:hover {
-  background: #fef2f2;
-  border-color: #EF4444;
+  background: #FEF2F2;
+  border-color: var(--color-error);
+  transform: translateY(-1px);
 }
 
-/* Scrollbar styling */
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
 .sidebar::-webkit-scrollbar {
   width: 6px;
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background: #f9fafb;
+  background: var(--color-background);
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 3px;
+  background: var(--color-border-dark);
+  border-radius: var(--radius-sm);
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: var(--color-secondary);
 }

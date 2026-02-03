@@ -7,7 +7,7 @@
 .list-view {
   flex: 1;
   overflow: auto;
-  padding: var(--space-5);
+  padding: var(--space-6);
   background: var(--color-background);
 }
 
@@ -17,7 +17,7 @@
 
 .list-view-title {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   margin: 0;
 }
@@ -28,10 +28,10 @@
 
 .list-view-table-container {
   background: var(--color-surface);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-300);
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
   overflow: hidden;
-  box-shadow: var(--shadow-base);
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.08);
 }
 
 .list-view-table {
@@ -44,18 +44,18 @@
    ============================================ */
 
 .list-view-table thead {
-  background: var(--gradient-subtle);
-  border-bottom: 1px solid var(--color-border-300);
+  background: #FAFBFC;
+  border-bottom: 2px solid var(--color-border-light);
 }
 
 .list-view-table th {
   padding: var(--space-3) var(--space-4);
   text-align: left;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text-secondary);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: 0.3px;
 }
 
 /* ============================================
@@ -77,8 +77,8 @@
 }
 
 .list-view-table td {
-  padding: var(--space-4);
-  font-size: var(--font-size-base);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
   color: var(--color-text);
   vertical-align: middle;
 }
@@ -94,11 +94,11 @@
 .task-info {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 4px;
 }
 
 .task-name {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
   line-height: var(--line-height-tight);
 }
@@ -114,15 +114,15 @@
 }
 
 /* ============================================
-   BADGES - Status and Priority (Jira-inspired)
+   BADGES - Status and Priority
    ============================================ */
 
 .status-badge,
 .priority-badge {
   display: inline-block;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-sm);
+  padding: 2px var(--space-2);
+  border-radius: 3px;
+  font-size: 11px;
   font-weight: var(--font-weight-semibold);
   text-transform: capitalize;
 }
@@ -133,23 +133,23 @@
 }
 
 .status-todo {
-  background: var(--color-status-todo-bg);
-  color: var(--color-status-todo-text);
+  background: #DFE1E6;
+  color: #42526E;
 }
 
 .status-in-progress {
-  background: var(--color-status-progress-bg);
-  color: var(--color-status-progress-text);
+  background: #DEEBFF;
+  color: #0052CC;
 }
 
 .status-review {
-  background: var(--color-status-review-bg);
-  color: var(--color-status-review-text);
+  background: #FFF0B3;
+  color: #974F0C;
 }
 
 .status-done {
-  background: var(--color-status-done-bg);
-  color: var(--color-status-done-text);
+  background: #E3FCEF;
+  color: #006644;
 }
 
 .priority-low {
@@ -172,13 +172,14 @@
    ============================================ */
 
 .assignee-cell {
-  color: var(--color-primary);
+  color: var(--color-text);
   font-weight: var(--font-weight-medium);
 }
 
 .due-date-cell {
   color: var(--color-text-secondary);
   font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-sm);
 }
 
 .due-date-cell.overdue {
@@ -194,23 +195,22 @@
 
 .label-tag {
   display: inline-block;
-  padding: var(--space-1) var(--space-2);
+  padding: 2px var(--space-2);
   background: #DEEBFF;
   color: var(--color-primary);
-  font-size: var(--font-size-xs);
+  font-size: 11px;
   font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-primary-alpha-20);
+  border-radius: 3px;
 }
 
 .label-more {
   display: inline-block;
-  padding: var(--space-1) var(--space-2);
+  padding: 2px var(--space-2);
   background: var(--color-background);
   color: var(--color-text-muted);
-  font-size: var(--font-size-xs);
+  font-size: 11px;
   font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-sm);
+  border-radius: 3px;
 }
 
 /* ============================================
@@ -221,5 +221,5 @@
   padding: var(--space-16) var(--space-5);
   text-align: center;
   color: var(--color-text-muted);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
 }

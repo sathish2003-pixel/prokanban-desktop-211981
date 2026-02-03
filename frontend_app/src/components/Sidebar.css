@@ -1,7 +1,7 @@
 @import '../styles/theme.css';
 
 /* ============================================
-   SIDEBAR - Navigation and filters
+   SIDEBAR - Left navigation panel
    ============================================ */
 
 .sidebar {
@@ -11,7 +11,7 @@
   bottom: 0;
   width: var(--sidebar-width);
   background: var(--color-surface);
-  border-right: 1px solid var(--color-border-300);
+  border-right: 1px solid var(--color-border);
   overflow-y: auto;
   z-index: var(--z-sidebar);
 }
@@ -36,10 +36,10 @@
 }
 
 .sidebar-title {
-  font-size: var(--font-size-sm);
+  font-size: 11px;
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: 0.5px;
   color: var(--color-text-secondary);
   margin: 0 0 var(--space-3) 0;
 }
@@ -47,11 +47,11 @@
 .expand-toggle {
   background: none;
   border: none;
-  color: var(--color-secondary);
+  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   cursor: pointer;
   padding: var(--space-1);
-  border-radius: var(--radius-sm);
+  border-radius: 3px;
   transition: all var(--transition-fast) var(--transition-timing);
 }
 
@@ -61,13 +61,13 @@
 }
 
 /* ============================================
-   NAVIGATION ITEMS - Jira blue active state
+   NAVIGATION ITEMS
    ============================================ */
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 2px;
 }
 
 .nav-item {
@@ -77,10 +77,10 @@
   padding: var(--space-2) var(--space-3);
   border: none;
   background: transparent;
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
   text-align: left;
@@ -98,7 +98,7 @@
 }
 
 .nav-icon {
-  font-size: var(--icon-base);
+  font-size: 16px;
 }
 
 /* ============================================
@@ -108,7 +108,7 @@
 .filters-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .filter-group {
@@ -118,24 +118,23 @@
 }
 
 .filter-label {
-  font-size: var(--font-size-sm);
+  font-size: 11px;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
-  font-size: var(--font-size-xs);
+  letter-spacing: 0.3px;
 }
 
 /* ============================================
-   SEARCH INPUT - Blue focus ring
+   SEARCH INPUT
    ============================================ */
 
 .filter-search {
   width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
   color: var(--color-text);
   background: var(--color-surface);
   transition: all var(--transition-fast) var(--transition-timing);
@@ -148,12 +147,12 @@
 
 .filter-search:focus {
   outline: none;
-  border-color: var(--color-primary-600);
-  box-shadow: 0 0 0 3px var(--color-primary-alpha-24);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 154, 255, 0.24);
 }
 
 /* ============================================
-   FILTER CHIPS - Jira-style blue pills
+   FILTER CHIPS
    ============================================ */
 
 .filter-options {
@@ -166,30 +165,27 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
+  padding: 4px var(--space-3);
+  border: 1px solid var(--color-border);
   background: var(--color-surface);
-  border-radius: var(--radius-base);
+  border-radius: 3px;
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
 }
 
 .filter-chip:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-border-dark);
   background: var(--color-background);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
 .filter-chip:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
-/* Active pill style with Jira blue */
 .filter-chip.active {
   background: var(--color-primary);
   color: var(--color-surface);
@@ -209,18 +205,15 @@
 }
 
 .priority-dot.priority-low {
-  background: var(--color-priority-low);
-  box-shadow: 0 0 0 2px rgba(0, 135, 90, 0.2);
+  background: #36B37E;
 }
 
 .priority-dot.priority-medium {
-  background: var(--color-priority-medium);
-  box-shadow: 0 0 0 2px rgba(255, 153, 31, 0.2);
+  background: #FF991F;
 }
 
 .priority-dot.priority-high {
-  background: var(--color-priority-high);
-  box-shadow: 0 0 0 2px rgba(222, 53, 11, 0.2);
+  background: #DE350B;
 }
 
 /* ============================================
@@ -230,9 +223,9 @@
 .clear-filters-btn {
   width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
+  border: 1px solid var(--color-border);
   background: var(--color-surface);
-  border-radius: var(--radius-base);
+  border-radius: 3px;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-error);
@@ -244,7 +237,6 @@
 .clear-filters-btn:hover {
   background: #FFEBE6;
   border-color: var(--color-error);
-  transform: translateY(-1px);
 }
 
 .clear-filters-btn:focus-visible {
@@ -253,11 +245,11 @@
 }
 
 /* ============================================
-   SCROLLBAR STYLING - Blue theme
+   SCROLLBAR STYLING
    ============================================ */
 
 .sidebar::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .sidebar::-webkit-scrollbar-track {
@@ -266,9 +258,12 @@
 
 .sidebar::-webkit-scrollbar-thumb {
   background: var(--color-border-dark);
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+  background: var(--color-text-muted);
+  background-clip: padding-box;
 }

@@ -1,7 +1,7 @@
 @import '../styles/theme.css';
 
 /* ============================================
-   NAVBAR - Sticky header with brand and controls
+   NAVBAR - Sticky top bar with shadow
    ============================================ */
 
 .navbar {
@@ -11,13 +11,13 @@
   right: 0;
   height: var(--navbar-height);
   background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border-300);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-6);
   z-index: var(--z-navbar);
-  box-shadow: var(--shadow-sticky);
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.08);
 }
 
 /* ============================================
@@ -42,7 +42,7 @@
 }
 
 /* ============================================
-   LOGO & BRANDING - Jira blue
+   LOGO & BRANDING
    ============================================ */
 
 .navbar-logo {
@@ -50,7 +50,7 @@
   align-items: center;
   gap: var(--space-2);
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   color: var(--color-primary);
   letter-spacing: var(--letter-spacing-tight);
   transition: opacity var(--transition-fast) var(--transition-timing);
@@ -69,36 +69,35 @@
 }
 
 .navbar-board-name {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   padding-left: var(--space-6);
   border-left: 1px solid var(--color-border);
 }
 
 /* ============================================
-   VIEW TOGGLE - Jira-style blue accents
+   VIEW TOGGLE - Jira-style segmented control
    ============================================ */
 
 .view-toggle {
   display: flex;
   background: var(--color-background);
-  border-radius: var(--radius-md);
-  padding: var(--space-1);
-  gap: var(--space-1);
-  border: 1px solid var(--color-border-300);
-  box-shadow: var(--shadow-sm);
+  border-radius: 3px;
+  padding: 2px;
+  gap: 2px;
+  border: 1px solid var(--color-border);
 }
 
 .view-toggle-btn {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  padding: 6px var(--space-4);
   border: none;
   background: transparent;
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -107,27 +106,28 @@
 }
 
 .view-toggle-btn:hover {
-  background: var(--color-surface);
-  color: var(--color-primary);
+  background: var(--color-border-light);
+  color: var(--color-text);
 }
 
 .view-toggle-btn.active {
-  background: var(--color-primary);
-  color: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.08);
+  font-weight: var(--font-weight-semibold);
 }
 
 .view-toggle-btn:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
 .view-icon {
-  font-size: var(--icon-sm);
+  font-size: 14px;
 }
 
 /* ============================================
-   USER SECTION - Blue avatar gradient
+   USER SECTION
    ============================================ */
 
 .navbar-user {
@@ -135,7 +135,7 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3) var(--space-2) var(--space-2);
-  border-radius: var(--radius-md);
+  border-radius: 3px;
   transition: background var(--transition-fast) var(--transition-timing);
   cursor: pointer;
 }
@@ -155,13 +155,13 @@
   color: var(--color-surface);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.12);
 }
 
 .user-name {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 /* ============================================

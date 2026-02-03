@@ -10,7 +10,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(9, 30, 66, 0.3);
+  background: rgba(9, 30, 66, 0.24);
   backdrop-filter: blur(2px);
   z-index: var(--z-overlay);
   animation: fadeIn var(--transition-base) ease;
@@ -23,8 +23,8 @@
   bottom: 0;
   width: var(--panel-width);
   background: var(--color-surface);
-  border-left: 1px solid var(--color-border-300);
-  box-shadow: var(--shadow-xl);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -4px 0 12px rgba(9, 30, 66, 0.15);
   z-index: var(--z-modal);
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@
 }
 
 /* ============================================
-   PANEL HEADER - Blue gradient
+   PANEL HEADER
    ============================================ */
 
 .panel-header {
@@ -58,27 +58,27 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-5) var(--space-6);
-  border-bottom: 1px solid var(--color-border-300);
-  background: var(--gradient-subtle);
+  border-bottom: 1px solid var(--color-border);
+  background: #FAFBFC;
 }
 
 .panel-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   margin: 0;
 }
 
 .panel-close-btn {
-  width: var(--avatar-base);
-  height: var(--avatar-base);
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
-  border-radius: var(--radius-base);
-  color: var(--color-text-secondary);
+  border-radius: 3px;
+  color: var(--color-text-muted);
   font-size: var(--font-size-xl);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
@@ -86,7 +86,7 @@
 
 .panel-close-btn:hover {
   background: var(--color-border-light);
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 /* ============================================
@@ -100,7 +100,7 @@
 }
 
 .panel-content::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .panel-content::-webkit-scrollbar-track {
@@ -108,8 +108,10 @@
 }
 
 .panel-content::-webkit-scrollbar-thumb {
-  background: var(--color-border-400);
-  border-radius: var(--radius-sm);
+  background: var(--color-border-dark);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 /* ============================================
@@ -122,40 +124,40 @@
 
 .panel-label {
   display: block;
-  font-size: var(--font-size-xs);
+  font-size: 11px;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-2);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: 0.3px;
 }
 
 .task-detail-title {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   margin: 0;
   line-height: var(--line-height-tight);
 }
 
 .task-detail-description {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
   margin: 0;
 }
 
 /* ============================================
-   FORM INPUTS - Blue focus rings
+   FORM INPUTS
    ============================================ */
 
 .panel-input,
 .panel-select {
   width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
   color: var(--color-text);
   background: var(--color-surface);
   font-family: var(--font-family-base);
@@ -165,17 +167,17 @@
 .panel-input:focus,
 .panel-select:focus {
   outline: none;
-  border-color: var(--color-primary-600);
-  box-shadow: 0 0 0 3px var(--color-primary-alpha-24);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 154, 255, 0.24);
 }
 
 .panel-textarea {
   width: 100%;
   min-height: 100px;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
   color: var(--color-text);
   background: var(--color-surface);
   font-family: var(--font-family-base);
@@ -186,12 +188,12 @@
 
 .panel-textarea:focus {
   outline: none;
-  border-color: var(--color-primary-600);
-  box-shadow: 0 0 0 3px var(--color-primary-alpha-24);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 154, 255, 0.24);
 }
 
 /* ============================================
-   DISPLAY FIELDS (Read-only) - Blue accents
+   DISPLAY FIELDS (Read-only)
    ============================================ */
 
 .status-display,
@@ -199,11 +201,11 @@
 .date-display {
   padding: var(--space-2) var(--space-3);
   background: var(--color-background);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  color: var(--color-primary);
-  font-weight: var(--font-weight-medium);
-  border: 1px solid var(--color-border-300);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-weight: var(--font-weight-normal);
+  border: 1px solid var(--color-border);
 }
 
 .priority-display {
@@ -212,11 +214,11 @@
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
   background: var(--color-background);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  color: var(--color-primary);
-  font-weight: var(--font-weight-medium);
-  border: 1px solid var(--color-border-300);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-weight: var(--font-weight-normal);
+  border: 1px solid var(--color-border);
 }
 
 .priority-indicator {
@@ -226,7 +228,7 @@
 }
 
 /* ============================================
-   PRIORITY OPTIONS (Edit mode) - Blue active state
+   PRIORITY OPTIONS (Edit mode)
    ============================================ */
 
 .priority-options {
@@ -241,24 +243,23 @@
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
+  border: 1px solid var(--color-border);
   background: var(--color-surface);
-  border-radius: var(--radius-base);
+  border-radius: 3px;
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
 }
 
 .priority-option:hover {
-  border-color: var(--color-border-400);
+  border-color: var(--color-border-dark);
   background: var(--color-background);
-  transform: translateY(-1px);
 }
 
 .priority-option:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
@@ -266,10 +267,11 @@
   background: var(--color-primary);
   color: var(--color-surface);
   border-color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* ============================================
-   LABELS - Blue badges
+   LABELS
    ============================================ */
 
 .labels-display {
@@ -280,18 +282,17 @@
 
 .label-badge {
   display: inline-block;
-  padding: var(--space-1) var(--space-2);
+  padding: 2px var(--space-2);
   background: #DEEBFF;
   color: var(--color-primary);
-  font-size: var(--font-size-sm);
+  font-size: 11px;
   font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-primary-alpha-20);
+  border-radius: 3px;
 }
 
 .no-labels {
   color: var(--color-text-muted);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
 }
 
 .labels-edit {
@@ -301,25 +302,24 @@
 }
 
 .label-option {
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-300);
+  padding: 4px var(--space-3);
+  border: 1px solid var(--color-border);
   background: var(--color-surface);
-  border-radius: var(--radius-sm);
+  border-radius: 3px;
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
 }
 
 .label-option:hover {
-  border-color: var(--color-border-400);
+  border-color: var(--color-border-dark);
   background: var(--color-background);
-  transform: translateY(-1px);
 }
 
 .label-option:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
@@ -327,26 +327,27 @@
   background: var(--color-primary);
   color: var(--color-surface);
   border-color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* ============================================
-   PANEL FOOTER - Action Buttons (Jira blue)
+   PANEL FOOTER - Action Buttons
    ============================================ */
 
 .panel-footer {
   display: flex;
   gap: var(--space-3);
   padding: var(--space-5) var(--space-6);
-  border-top: 1px solid var(--color-border-300);
-  background: var(--color-background);
+  border-top: 1px solid var(--color-border);
+  background: #FAFBFC;
 }
 
 .panel-btn {
   flex: 1;
   padding: var(--space-2) var(--space-4);
   border: none;
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
@@ -362,27 +363,27 @@
 .btn-edit:hover,
 .btn-save:hover {
   background: var(--color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.12);
 }
 
 .btn-edit:focus-visible,
 .btn-save:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
 .btn-cancel {
-  background: var(--color-border-light);
-  color: var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
 }
 
 .btn-cancel:hover {
-  background: var(--color-border-300);
+  background: var(--color-background);
 }
 
 .btn-cancel:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
@@ -393,7 +394,6 @@
 
 .btn-delete:hover {
   background: #FFBDAD;
-  transform: translateY(-1px);
 }
 
 .btn-delete:focus-visible {

@@ -1,7 +1,7 @@
 @import '../styles/theme.css';
 
 /* ============================================
-   BOARD COLUMN - Vertical task containers
+   BOARD COLUMN - Jira-precise vertical list
    ============================================ */
 
 .board-column {
@@ -10,82 +10,87 @@
   width: var(--column-width);
   flex-shrink: 0;
   background: var(--color-surface);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-300);
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
   height: calc(100vh - 140px);
-  box-shadow: var(--shadow-base);
+  box-shadow: 0 1px 1px rgba(9, 30, 66, 0.08);
   transition: box-shadow var(--transition-fast) var(--transition-timing);
 }
 
 .board-column:hover {
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 2px 4px rgba(9, 30, 66, 0.12);
 }
 
 /* ============================================
-   COLUMN HEADER - Blue gradient accent
+   COLUMN HEADER - Left-aligned title + count pill
    ============================================ */
 
 .column-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-4);
-  border-bottom: 1px solid var(--color-border-300);
-  background: var(--gradient-subtle);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-border-light);
+  background: #FAFBFC;
 }
 
 .column-title {
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: 0.3px;
+  font-size: 12px;
 }
 
 .column-count {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 24px;
-  height: 24px;
-  padding: 0 var(--space-2);
-  background: #DEEBFF;
-  color: var(--color-primary);
-  font-size: var(--font-size-sm);
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: var(--color-border-light);
+  color: var(--color-text-secondary);
+  font-size: 11px;
   font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-primary-alpha-20);
+  border-radius: 12px;
 }
 
 /* ============================================
-   COLUMN TASKS AREA
+   COLUMN TASKS AREA - Inner scroll
    ============================================ */
 
 .column-tasks {
   flex: 1;
   overflow-y: auto;
-  padding: var(--space-3);
+  overflow-x: hidden;
+  padding: var(--space-2);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
 
 .column-tasks::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .column-tasks::-webkit-scrollbar-track {
   background: transparent;
+  margin: 4px 0;
 }
 
 .column-tasks::-webkit-scrollbar-thumb {
-  background: var(--color-border-400);
-  border-radius: var(--radius-sm);
+  background: var(--color-border-dark);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 .column-tasks::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-600);
+  background: var(--color-text-muted);
+  background-clip: padding-box;
 }
 
 /* ============================================
@@ -96,32 +101,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-10) var(--space-5);
+  padding: var(--space-10) var(--space-4);
   color: var(--color-text-muted);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   text-align: center;
+  font-style: italic;
 }
 
 /* ============================================
-   ADD TASK BUTTON - Jira blue hover
+   ADD TASK BUTTON - Link-style with plus icon
    ============================================ */
 
 .add-task-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-2);
   width: 100%;
-  padding: var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border: none;
-  border-top: 1px solid var(--color-border-300);
-  background: var(--color-surface);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  border-top: 1px solid var(--color-border-light);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
   cursor: pointer;
   transition: all var(--transition-fast) var(--transition-timing);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  border-radius: 0 0 3px 3px;
+  text-align: left;
 }
 
 .add-task-btn:hover {
@@ -130,15 +137,16 @@
 }
 
 .add-task-btn:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-primary-light);
   outline-offset: -2px;
 }
 
 .add-task-btn:active {
-  transform: translateY(1px);
+  transform: none;
 }
 
 .add-icon {
-  font-size: var(--icon-base);
-  font-weight: var(--font-weight-semibold);
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
 }

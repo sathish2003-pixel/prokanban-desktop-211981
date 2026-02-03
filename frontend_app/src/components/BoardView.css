@@ -1,0 +1,32 @@
+.board-view {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  background: #f9fafb;
+}
+
+.board-columns {
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  min-width: min-content;
+}
+
+/* Scrollbar styling */
+.board-view::-webkit-scrollbar {
+  height: 8px;
+}
+
+.board-view::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.board-view::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.board-view::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

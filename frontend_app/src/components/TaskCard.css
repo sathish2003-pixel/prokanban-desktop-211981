@@ -16,7 +16,7 @@
 
 .task-card:hover {
   box-shadow: var(--shadow-hover);
-  border-color: var(--color-border-400);
+  border-color: var(--color-primary);
   transform: translateY(-2px);
 }
 
@@ -82,7 +82,7 @@
 }
 
 /* ============================================
-   TASK LABELS
+   TASK LABELS - Blue badges
    ============================================ */
 
 .task-labels {
@@ -95,12 +95,12 @@
 .task-label {
   display: inline-block;
   padding: var(--space-1) var(--space-2);
-  background: var(--color-border-light);
+  background: #DEEBFF;
   color: var(--color-primary);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border-300);
+  border: 1px solid var(--color-primary-alpha-20);
 }
 
 .task-label-more {
@@ -148,7 +148,7 @@
 }
 
 /* ============================================
-   TASK ASSIGNEE AVATAR
+   TASK ASSIGNEE AVATAR - Blue gradient
    ============================================ */
 
 .task-assignee {

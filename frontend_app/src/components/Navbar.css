@@ -42,7 +42,7 @@
 }
 
 /* ============================================
-   LOGO & BRANDING
+   LOGO & BRANDING - Jira blue
    ============================================ */
 
 .navbar-logo {
@@ -77,7 +77,7 @@
 }
 
 /* ============================================
-   VIEW TOGGLE - Enhanced with gradient accent
+   VIEW TOGGLE - Jira-style blue accents
    ============================================ */
 
 .view-toggle {
@@ -112,8 +112,8 @@
 }
 
 .view-toggle-btn.active {
-  background: var(--color-surface);
-  color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-surface);
   box-shadow: var(--shadow-sm);
 }
 
@@ -122,24 +122,12 @@
   outline-offset: 2px;
 }
 
-/* Retro gradient accent underline for active state */
-.view-toggle-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: var(--space-2);
-  right: var(--space-2);
-  height: 2px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-full);
-}
-
 .view-icon {
   font-size: var(--icon-sm);
 }
 
 /* ============================================
-   USER SECTION
+   USER SECTION - Blue avatar gradient
    ============================================ */
 
 .navbar-user {

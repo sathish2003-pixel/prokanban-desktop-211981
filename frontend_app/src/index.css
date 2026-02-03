@@ -33,7 +33,7 @@ code {
 }
 
 /* ============================================
-   GLOBAL SCROLLBAR STYLING
+   GLOBAL SCROLLBAR STYLING - Jira blue
    ============================================ */
 
 ::-webkit-scrollbar {
@@ -51,11 +51,11 @@ code {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+  background: var(--color-primary);
 }
 
 /* ============================================
-   FOCUS STYLES (Accessibility)
+   FOCUS STYLES (Accessibility) - Blue focus rings
    ============================================ */
 
 button:focus-visible,
@@ -68,7 +68,7 @@ a:focus-visible {
 }
 
 /* ============================================
-   SELECTION STYLES
+   SELECTION STYLES - Blue selection
    ============================================ */
 
 ::selection {

@@ -1,24 +1,24 @@
 /**
- * Retro-styled Pure White Theme - Design Tokens
+ * Jira-like Blue Theme - Design Tokens
  * 
- * CONTRAST TUNING (Latest Update):
- * - Enhanced neutral scale (200/300/400) for clearer borders and dividers
- * - Deepened primary-600/700 for better interactive state contrast
- * - Improved text-muted contrast on background (now gray-500 for >= 4.5:1)
- * - Stronger focus rings and drag state outlines for accessibility
- * - Enhanced elevation scale with more visible shadows for cards
- * - All changes preserve the Retro-styled Pure White aesthetic
+ * JIRA-INSPIRED DESIGN:
+ * - Primary blue palette (#0052CC, #0747A6) matching Atlassian Jira
+ * - Clean, professional interface with blue accents throughout
+ * - Enhanced interactive states with blue hover/focus rings
+ * - Maintained WCAG AA accessibility standards
+ * - Professional blue badges and status indicators
  * 
  * This file defines all design tokens (colors, spacing, typography, shadows, etc.)
- * for the ProKanban application following a cohesive Retro aesthetic with Pure White base.
+ * for the ProKanban application following Jira's blue design language.
  * 
  * DESIGN PRINCIPLES:
- * - Pure White base with slate-700 primary and emerald-500 success accents
- * - Retro aesthetic: soft rounded corners (8px), subtle shadows, thin borders
- * - Gentle gradients and muted textures for depth without overwhelming minimalism
- * - Micro-interactions with smooth 150-200ms transitions
+ * - Jira blue (#0052CC) as primary brand color
+ * - White base with light blue-gray neutrals
+ * - Clean aesthetic: rounded corners (3-6px), subtle shadows, professional feel
+ * - Blue gradients and accents for depth and visual interest
+ * - Smooth 150-200ms transitions for interactions
  * - 8px spacing scale for consistency
- * - System font stack with Inter fallback for retro feel
+ * - System font stack with Inter for modern, clean typography
  * - WCAG AA compliance: >= 4.5:1 for body text, >= 3:1 for large/semibold UI text
  * 
  * USAGE:
@@ -30,57 +30,57 @@
 
 :root {
   /* ============================================
-     COLOR PALETTE - Pure White Theme (Enhanced Contrast)
+     COLOR PALETTE - Jira-like Blue Theme
      ============================================ */
   
-  /* Primary Colors - Deepened for better contrast */
-  --color-primary: #374151;           /* slate-700 - main brand, headings, primary actions */
-  --color-primary-dark: #1f2937;      /* slate-800 - hover states for primary */
-  --color-primary-light: #4b5563;     /* slate-600 - lighter primary variant */
-  --color-primary-600: #475569;       /* slate-600 - active states with better contrast */
-  --color-primary-700: #334155;       /* slate-700 - deepened for interactive elements */
-  --color-primary-alpha-10: rgba(55, 65, 81, 0.1);
-  --color-primary-alpha-20: rgba(55, 65, 81, 0.2);
-  --color-primary-alpha-24: rgba(55, 65, 81, 0.24);  /* For focus rings */
+  /* Primary Colors - Jira Blue */
+  --color-primary: #0052CC;           /* Jira blue - main brand, links, primary actions */
+  --color-primary-dark: #0747A6;      /* Darker blue - hover states for primary */
+  --color-primary-light: #4C9AFF;     /* Lighter blue - lighter primary variant */
+  --color-primary-600: #0065FF;       /* Bright blue - active states */
+  --color-primary-700: #0747A6;       /* Deep blue - deepened for interactive elements */
+  --color-primary-alpha-10: rgba(0, 82, 204, 0.1);
+  --color-primary-alpha-20: rgba(0, 82, 204, 0.2);
+  --color-primary-alpha-24: rgba(0, 82, 204, 0.24);  /* For focus rings */
   
   /* Success & Error */
-  --color-success: #10B981;           /* emerald-500 - success states, positive actions */
-  --color-success-dark: #059669;      /* emerald-600 - hover for success */
-  --color-success-light: #34D399;     /* emerald-400 - lighter success */
-  --color-error: #EF4444;             /* red-500 - errors, warnings, destructive actions */
-  --color-error-dark: #DC2626;        /* red-600 - hover for error */
-  --color-error-light: #FCA5A5;       /* red-300 - lighter error */
+  --color-success: #00875A;           /* Jira green - success states, positive actions */
+  --color-success-dark: #006644;      /* Darker green - hover for success */
+  --color-success-light: #57D9A3;     /* Lighter green - lighter success */
+  --color-error: #DE350B;             /* Jira red - errors, warnings, destructive actions */
+  --color-error-dark: #BF2600;        /* Darker red - hover for error */
+  --color-error-light: #FF8F73;       /* Lighter red - lighter error */
   
-  /* Secondary & Neutral - Enhanced contrast scale */
-  --color-secondary: #9CA3AF;         /* gray-400 - secondary text, icons */
-  --color-background: #F9FAFB;        /* gray-50 - main background */
-  --color-surface: #FFFFFF;           /* pure white - cards, panels, surfaces */
-  --color-text: #111827;              /* gray-900 - primary text */
-  --color-text-secondary: #6B7280;    /* gray-500 - secondary text */
-  --color-text-muted: #6B7280;        /* gray-500 - improved from gray-400 for better contrast (>= 4.5:1) */
+  /* Secondary & Neutral - Blue-gray tones */
+  --color-secondary: #6B778C;         /* Blue-gray - secondary text, icons */
+  --color-background: #F4F5F7;        /* Light blue-gray - main background */
+  --color-surface: #FFFFFF;           /* Pure white - cards, panels, surfaces */
+  --color-text: #172B4D;              /* Dark blue-gray - primary text */
+  --color-text-secondary: #5E6C84;    /* Medium blue-gray - secondary text */
+  --color-text-muted: #6B778C;        /* Muted blue-gray - tertiary text */
   
-  /* Borders & Dividers - Enhanced neutral scale for clearer separation */
-  --color-border: #E5E7EB;            /* gray-200 - default borders */
-  --color-border-light: #F3F4F6;      /* gray-100 - subtle dividers */
-  --color-border-dark: #D1D5DB;       /* gray-300 - emphasized borders */
-  --color-border-200: #E5E7EB;        /* gray-200 - explicit neutral-200 */
-  --color-border-300: #D1D5DB;        /* gray-300 - explicit neutral-300 for column/card borders */
-  --color-border-400: #9CA3AF;        /* gray-400 - explicit neutral-400 for stronger separation */
+  /* Borders & Dividers - Light blue-gray scale */
+  --color-border: #DFE1E6;            /* Light blue-gray - default borders */
+  --color-border-light: #EBECF0;      /* Very light blue-gray - subtle dividers */
+  --color-border-dark: #C1C7D0;       /* Medium blue-gray - emphasized borders */
+  --color-border-200: #DFE1E6;        /* Explicit neutral-200 */
+  --color-border-300: #C1C7D0;        /* Explicit neutral-300 for column/card borders */
+  --color-border-400: #A5ADBA;        /* Explicit neutral-400 for stronger separation */
   
-  /* Status Colors (for badges) - Enhanced contrast */
-  --color-status-todo-bg: #F3F4F6;
-  --color-status-todo-text: #4B5563;     /* Deepened from gray-500 to slate-600 */
-  --color-status-progress-bg: #DBEAFE;
-  --color-status-progress-text: #1E40AF;
-  --color-status-review-bg: #FEF3C7;
-  --color-status-review-text: #92400E;
-  --color-status-done-bg: #D1FAE5;
-  --color-status-done-text: #065F46;
+  /* Status Colors (for badges) - Jira-inspired */
+  --color-status-todo-bg: #DFE1E6;
+  --color-status-todo-text: #42526E;
+  --color-status-progress-bg: #DEEBFF;
+  --color-status-progress-text: #0052CC;
+  --color-status-review-bg: #FFF0B3;
+  --color-status-review-text: #974F0C;
+  --color-status-done-bg: #E3FCEF;
+  --color-status-done-text: #006644;
   
   /* Priority Colors */
-  --color-priority-low: #10B981;
-  --color-priority-medium: #F59E0B;
-  --color-priority-high: #EF4444;
+  --color-priority-low: #00875A;
+  --color-priority-medium: #FF991F;
+  --color-priority-high: #DE350B;
   
   /* ============================================
      SPACING SCALE (8px base)
@@ -130,28 +130,28 @@
   --letter-spacing-wide: 0.5px;
   
   /* ============================================
-     BORDER RADIUS (soft rounded corners)
+     BORDER RADIUS (Jira-like rounded corners)
      ============================================ */
-  --radius-sm: 4px;
-  --radius-base: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 3px;
+  --radius-base: 3px;
+  --radius-md: 3px;
+  --radius-lg: 3px;
   --radius-full: 9999px;
   
   /* ============================================
-     SHADOWS (enhanced elevation scale)
+     SHADOWS (clean elevation scale)
      ============================================ */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12);
-  --shadow-xl: -4px 0 12px rgba(0, 0, 0, 0.12);
-  --shadow-sticky: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.12);    /* For hovered cards */
-  --shadow-drag: 0 12px 24px rgba(0, 0, 0, 0.15);    /* For dragged cards */
+  --shadow-sm: 0 1px 1px rgba(9, 30, 66, 0.08);
+  --shadow-base: 0 1px 2px rgba(9, 30, 66, 0.12);
+  --shadow-md: 0 4px 8px rgba(9, 30, 66, 0.15);
+  --shadow-lg: 0 8px 16px rgba(9, 30, 66, 0.15);
+  --shadow-xl: -4px 0 12px rgba(9, 30, 66, 0.15);
+  --shadow-sticky: 0 1px 2px rgba(9, 30, 66, 0.12);
+  --shadow-hover: 0 4px 12px rgba(9, 30, 66, 0.18);
+  --shadow-drag: 0 8px 24px rgba(9, 30, 66, 0.2);
   
   /* ============================================
-     TRANSITIONS (micro-interactions)
+     TRANSITIONS (smooth interactions)
      ============================================ */
   --transition-fast: 150ms;
   --transition-base: 200ms;
@@ -159,10 +159,10 @@
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
   
   /* ============================================
-     GRADIENTS (gentle, retro) - Adjusted for better contrast
+     GRADIENTS (blue-themed)
      ============================================ */
-  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
-  --gradient-subtle: linear-gradient(180deg, rgba(55, 65, 81, 0.06) 0%, var(--color-background) 100%);
+  --gradient-primary: linear-gradient(135deg, #0052CC 0%, #0065FF 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(0, 82, 204, 0.04) 0%, var(--color-background) 100%);
   --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.04) 100%);
   
   /* ============================================
@@ -228,7 +228,7 @@
   border: 0 !important;
 }
 
-/* Button base - Enhanced focus states */
+/* Button base - Jira-style blue buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -254,7 +254,18 @@
   transform: translateY(1px);
 }
 
-/* Chip/pill base - Enhanced contrast */
+/* Primary button - Jira blue */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Chip/pill base - Blue-themed */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -278,4 +289,41 @@
   background: var(--color-primary);
   color: var(--color-surface);
   border-color: var(--color-primary);
+}
+
+/* Badge utilities - Jira-style */
+.badge-blue {
+  background: #DEEBFF;
+  color: #0052CC;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.badge-green {
+  background: #E3FCEF;
+  color: #006644;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Link utilities - Jira blue links */
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast) var(--transition-timing);
+}
+
+.link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }

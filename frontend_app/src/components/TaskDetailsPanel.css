@@ -10,7 +10,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(9, 30, 66, 0.3);
   backdrop-filter: blur(2px);
   z-index: var(--z-overlay);
   animation: fadeIn var(--transition-base) ease;
@@ -50,7 +50,7 @@
 }
 
 /* ============================================
-   PANEL HEADER
+   PANEL HEADER - Blue gradient
    ============================================ */
 
 .panel-header {
@@ -146,7 +146,7 @@
 }
 
 /* ============================================
-   FORM INPUTS
+   FORM INPUTS - Blue focus rings
    ============================================ */
 
 .panel-input,
@@ -191,7 +191,7 @@
 }
 
 /* ============================================
-   DISPLAY FIELDS (Read-only)
+   DISPLAY FIELDS (Read-only) - Blue accents
    ============================================ */
 
 .status-display,
@@ -226,7 +226,7 @@
 }
 
 /* ============================================
-   PRIORITY OPTIONS (Edit mode)
+   PRIORITY OPTIONS (Edit mode) - Blue active state
    ============================================ */
 
 .priority-options {
@@ -269,7 +269,7 @@
 }
 
 /* ============================================
-   LABELS
+   LABELS - Blue badges
    ============================================ */
 
 .labels-display {
@@ -281,12 +281,12 @@
 .label-badge {
   display: inline-block;
   padding: var(--space-1) var(--space-2);
-  background: var(--color-border-light);
+  background: #DEEBFF;
   color: var(--color-primary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border-300);
+  border: 1px solid var(--color-primary-alpha-20);
 }
 
 .no-labels {
@@ -330,7 +330,7 @@
 }
 
 /* ============================================
-   PANEL FOOTER - Action Buttons
+   PANEL FOOTER - Action Buttons (Jira blue)
    ============================================ */
 
 .panel-footer {
@@ -387,12 +387,12 @@
 }
 
 .btn-delete {
-  background: #FEE2E2;
-  color: #991B1B;
+  background: #FFEBE6;
+  color: #BF2600;
 }
 
 .btn-delete:hover {
-  background: #FECACA;
+  background: #FFBDAD;
   transform: translateY(-1px);
 }
 

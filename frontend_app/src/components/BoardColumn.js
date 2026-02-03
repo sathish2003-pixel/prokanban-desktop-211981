@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { useDroppable } from '@dnd-kit/core';
 import SortableTaskCard from './SortableTaskCard';
+import AddTaskModal from './AddTaskModal';
 import { useAppContext } from '../context/AppContext';
 import './BoardColumn.css';
 
@@ -15,12 +16,21 @@ import './BoardColumn.css';
  */
 const BoardColumn = ({ list, tasks }) => {
   const { actions } = useAppContext();
+  const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
   const { setNodeRef } = useDroppable({
     id: list.id,
   });
 
   const handleTaskClick = (taskId) => {
     actions.setSelectedTask(taskId);
+  };
+
+  const handleAddTaskClick = () => {
+    setIsAddTaskModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsAddTaskModalOpen(false);
   };
 
   return (
@@ -46,10 +56,16 @@ const BoardColumn = ({ list, tasks }) => {
         )}
       </div>
 
-      <button className="add-task-btn">
+      <button className="add-task-btn" onClick={handleAddTaskClick}>
         <FiPlus className="add-icon" />
         Add task
       </button>
+
+      <AddTaskModal
+        isOpen={isAddTaskModalOpen}
+        onClose={handleCloseModal}
+        defaultListId={list.id}
+      />
     </div>
   );
 };

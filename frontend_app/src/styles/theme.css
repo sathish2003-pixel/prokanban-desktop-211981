@@ -1,6 +1,14 @@
 /**
  * Retro-styled Pure White Theme - Design Tokens
  * 
+ * CONTRAST TUNING (Latest Update):
+ * - Enhanced neutral scale (200/300/400) for clearer borders and dividers
+ * - Deepened primary-600/700 for better interactive state contrast
+ * - Improved text-muted contrast on background (now gray-500 for >= 4.5:1)
+ * - Stronger focus rings and drag state outlines for accessibility
+ * - Enhanced elevation scale with more visible shadows for cards
+ * - All changes preserve the Retro-styled Pure White aesthetic
+ * 
  * This file defines all design tokens (colors, spacing, typography, shadows, etc.)
  * for the ProKanban application following a cohesive Retro aesthetic with Pure White base.
  * 
@@ -11,6 +19,7 @@
  * - Micro-interactions with smooth 150-200ms transitions
  * - 8px spacing scale for consistency
  * - System font stack with Inter fallback for retro feel
+ * - WCAG AA compliance: >= 4.5:1 for body text, >= 3:1 for large/semibold UI text
  * 
  * USAGE:
  * Import this file at the top of your component CSS:
@@ -21,15 +30,18 @@
 
 :root {
   /* ============================================
-     COLOR PALETTE - Pure White Theme
+     COLOR PALETTE - Pure White Theme (Enhanced Contrast)
      ============================================ */
   
-  /* Primary Colors */
+  /* Primary Colors - Deepened for better contrast */
   --color-primary: #374151;           /* slate-700 - main brand, headings, primary actions */
   --color-primary-dark: #1f2937;      /* slate-800 - hover states for primary */
   --color-primary-light: #4b5563;     /* slate-600 - lighter primary variant */
+  --color-primary-600: #475569;       /* slate-600 - active states with better contrast */
+  --color-primary-700: #334155;       /* slate-700 - deepened for interactive elements */
   --color-primary-alpha-10: rgba(55, 65, 81, 0.1);
   --color-primary-alpha-20: rgba(55, 65, 81, 0.2);
+  --color-primary-alpha-24: rgba(55, 65, 81, 0.24);  /* For focus rings */
   
   /* Success & Error */
   --color-success: #10B981;           /* emerald-500 - success states, positive actions */
@@ -39,22 +51,25 @@
   --color-error-dark: #DC2626;        /* red-600 - hover for error */
   --color-error-light: #FCA5A5;       /* red-300 - lighter error */
   
-  /* Secondary & Neutral */
+  /* Secondary & Neutral - Enhanced contrast scale */
   --color-secondary: #9CA3AF;         /* gray-400 - secondary text, icons */
   --color-background: #F9FAFB;        /* gray-50 - main background */
   --color-surface: #FFFFFF;           /* pure white - cards, panels, surfaces */
   --color-text: #111827;              /* gray-900 - primary text */
   --color-text-secondary: #6B7280;    /* gray-500 - secondary text */
-  --color-text-muted: #9CA3AF;        /* gray-400 - muted/disabled text */
+  --color-text-muted: #6B7280;        /* gray-500 - improved from gray-400 for better contrast (>= 4.5:1) */
   
-  /* Borders & Dividers */
+  /* Borders & Dividers - Enhanced neutral scale for clearer separation */
   --color-border: #E5E7EB;            /* gray-200 - default borders */
   --color-border-light: #F3F4F6;      /* gray-100 - subtle dividers */
   --color-border-dark: #D1D5DB;       /* gray-300 - emphasized borders */
+  --color-border-200: #E5E7EB;        /* gray-200 - explicit neutral-200 */
+  --color-border-300: #D1D5DB;        /* gray-300 - explicit neutral-300 for column/card borders */
+  --color-border-400: #9CA3AF;        /* gray-400 - explicit neutral-400 for stronger separation */
   
-  /* Status Colors (for badges) */
+  /* Status Colors (for badges) - Enhanced contrast */
   --color-status-todo-bg: #F3F4F6;
-  --color-status-todo-text: #6B7280;
+  --color-status-todo-text: #4B5563;     /* Deepened from gray-500 to slate-600 */
   --color-status-progress-bg: #DBEAFE;
   --color-status-progress-text: #1E40AF;
   --color-status-review-bg: #FEF3C7;
@@ -124,14 +139,16 @@
   --radius-full: 9999px;
   
   /* ============================================
-     SHADOWS (subtle elevation)
+     SHADOWS (enhanced elevation scale)
      ============================================ */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: -4px 0 12px rgba(0, 0, 0, 0.1);
-  --shadow-sticky: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12);
+  --shadow-xl: -4px 0 12px rgba(0, 0, 0, 0.12);
+  --shadow-sticky: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.12);    /* For hovered cards */
+  --shadow-drag: 0 12px 24px rgba(0, 0, 0, 0.15);    /* For dragged cards */
   
   /* ============================================
      TRANSITIONS (micro-interactions)
@@ -142,11 +159,11 @@
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
   
   /* ============================================
-     GRADIENTS (gentle, retro)
+     GRADIENTS (gentle, retro) - Adjusted for better contrast
      ============================================ */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
-  --gradient-subtle: linear-gradient(180deg, var(--color-primary-alpha-10) 0%, var(--color-background) 100%);
-  --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(55, 65, 81, 0.06) 0%, var(--color-background) 100%);
+  --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.04) 100%);
   
   /* ============================================
      Z-INDEX LAYERS
@@ -211,7 +228,7 @@
   border: 0 !important;
 }
 
-/* Button base */
+/* Button base - Enhanced focus states */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -229,7 +246,7 @@
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-primary-600);
   outline-offset: 2px;
 }
 
@@ -237,13 +254,13 @@
   transform: translateY(1px);
 }
 
-/* Chip/pill base */
+/* Chip/pill base - Enhanced contrast */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
   background: var(--color-surface);
   border-radius: var(--radius-base);
   font-size: var(--font-size-sm);
@@ -253,7 +270,7 @@
 }
 
 .chip:hover {
-  border-color: var(--color-secondary);
+  border-color: var(--color-border-400);
   background: var(--color-background);
 }
 

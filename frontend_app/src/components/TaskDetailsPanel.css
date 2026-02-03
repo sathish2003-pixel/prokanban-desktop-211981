@@ -23,7 +23,7 @@
   bottom: 0;
   width: var(--panel-width);
   background: var(--color-surface);
-  border-left: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border-300);
   box-shadow: var(--shadow-xl);
   z-index: var(--z-modal);
   display: flex;
@@ -58,7 +58,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-5) var(--space-6);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-300);
   background: var(--gradient-subtle);
 }
 
@@ -108,7 +108,7 @@
 }
 
 .panel-content::-webkit-scrollbar-thumb {
-  background: var(--color-border-dark);
+  background: var(--color-border-400);
   border-radius: var(--radius-sm);
 }
 
@@ -153,7 +153,7 @@
 .panel-select {
   width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
   border-radius: var(--radius-base);
   font-size: var(--font-size-base);
   color: var(--color-text);
@@ -165,15 +165,15 @@
 .panel-input:focus,
 .panel-select:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--color-primary-alpha-10);
+  border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha-24);
 }
 
 .panel-textarea {
   width: 100%;
   min-height: 100px;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
   border-radius: var(--radius-base);
   font-size: var(--font-size-base);
   color: var(--color-text);
@@ -186,8 +186,8 @@
 
 .panel-textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--color-primary-alpha-10);
+  border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha-24);
 }
 
 /* ============================================
@@ -203,7 +203,7 @@
   font-size: var(--font-size-base);
   color: var(--color-primary);
   font-weight: var(--font-weight-medium);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
 }
 
 .priority-display {
@@ -216,7 +216,7 @@
   font-size: var(--font-size-base);
   color: var(--color-primary);
   font-weight: var(--font-weight-medium);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
 }
 
 .priority-indicator {
@@ -241,7 +241,7 @@
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
   background: var(--color-surface);
   border-radius: var(--radius-base);
   font-size: var(--font-size-sm);
@@ -252,9 +252,14 @@
 }
 
 .priority-option:hover {
-  border-color: var(--color-secondary);
+  border-color: var(--color-border-400);
   background: var(--color-background);
   transform: translateY(-1px);
+}
+
+.priority-option:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
 }
 
 .priority-option.active {
@@ -281,7 +286,7 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
 }
 
 .no-labels {
@@ -297,7 +302,7 @@
 
 .label-option {
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-300);
   background: var(--color-surface);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
@@ -308,9 +313,14 @@
 }
 
 .label-option:hover {
-  border-color: var(--color-secondary);
+  border-color: var(--color-border-400);
   background: var(--color-background);
   transform: translateY(-1px);
+}
+
+.label-option:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
 }
 
 .label-option.active {
@@ -327,7 +337,7 @@
   display: flex;
   gap: var(--space-3);
   padding: var(--space-5) var(--space-6);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-300);
   background: var(--color-background);
 }
 
@@ -358,7 +368,7 @@
 
 .btn-edit:focus-visible,
 .btn-save:focus-visible {
-  outline: 2px solid var(--color-success);
+  outline: 2px solid var(--color-primary-600);
   outline-offset: 2px;
 }
 
@@ -368,7 +378,12 @@
 }
 
 .btn-cancel:hover {
-  background: var(--color-border);
+  background: var(--color-border-300);
+}
+
+.btn-cancel:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
 }
 
 .btn-delete {
@@ -379,6 +394,11 @@
 .btn-delete:hover {
   background: #FECACA;
   transform: translateY(-1px);
+}
+
+.btn-delete:focus-visible {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
 }
 
 /* ============================================
